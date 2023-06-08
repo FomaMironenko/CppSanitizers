@@ -5,12 +5,12 @@
 
 template <typename T>
 void overflowNumericType() {
-    T unsigned_int = std::numeric_limits<T>::max() / 3;
-    T unsigned_overflow = unsigned_int * 4;
+    T large_value = std::numeric_limits<T>::max() / 3;
+    T overflown = large_value * 4;
     if constexpr (std::is_integral_v<T> && sizeof(T) <= 2) {
-        std::cout << static_cast<int>(unsigned_overflow) << std::endl;
+        std::cout << static_cast<int>(overflown) << std::endl;
     } else {
-        std::cout << unsigned_overflow << std::endl;
+        std::cout << overflown << std::endl;
     }
 }
 

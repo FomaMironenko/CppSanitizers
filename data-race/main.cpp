@@ -14,10 +14,10 @@ void UpdateState(State& state, int update) {
 int main() {
     State shared_state{0};
 
-    std::thread t0{UpdateState, std::ref(shared_state), 0};
-    std::thread t1{UpdateState, std::ref(shared_state), 1};
-    t0.join();
+    std::thread t1{UpdateState, std::ref(shared_state), 0};
+    std::thread t2{UpdateState, std::ref(shared_state), 1};
     t1.join();
+    t2.join();
 
     std::cout << shared_state << std::endl;
 

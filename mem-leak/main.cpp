@@ -12,6 +12,7 @@ struct Node {
     DType value;
     std::shared_ptr<Node> prev;
     std::shared_ptr<Node> next;
+
     explicit Node(DType val) : value(val), prev(nullptr), next(nullptr) {
     }
 };
@@ -24,6 +25,10 @@ struct Node {
  * head <-> data_node_1 <-> data_node_2 <-> ... <-> data_node_n <-> tail
  */
 class DoublyLinkedList {
+private:
+    std::shared_ptr<Node> head_;
+    std::shared_ptr<Node> tail_;
+
 public:
     DoublyLinkedList() {
         head_ = std::make_shared<Node>(0);
@@ -76,10 +81,6 @@ private:
         rhs_node->prev = new_node;
         new_node->next = rhs_node;
     }
-
-private:
-    std::shared_ptr<Node> head_;
-    std::shared_ptr<Node> tail_;
 };
 
 

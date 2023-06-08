@@ -1,9 +1,7 @@
 #include <initializer_list>
 #include <iostream>
-#include <algorithm>
 #include <vector>
 #include <string>
-#include <limits>
 
 
 int* allocate(std::initializer_list<int> ilist) {
@@ -18,7 +16,8 @@ template <class Container>
 void testArrayAccess(const char* TEST_NAME, Container& array_like, size_t n) {
     std::cout << std::endl << TEST_NAME << std::endl;
     for (size_t idx = 0; idx < n; ++idx) {
-        printf("[%02lu] -> %d\n", idx, array_like[idx]);
+        auto value = array_like[idx];
+        printf("[%02lu] -> %d\n", idx, value);
     }
 }
 

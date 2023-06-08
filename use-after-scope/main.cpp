@@ -12,7 +12,7 @@ int ProcessSharedState() {
 int main() {
     int* acquired_data_prt = nullptr;
     {
-        std::lock_guard<std::mutex> guard(shared_state_mutex);
+        std::lock_guard guard(shared_state_mutex);
         int acquired_data = ProcessSharedState();
         acquired_data_prt = &acquired_data;
     }
